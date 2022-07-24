@@ -24,15 +24,13 @@ Route::get('/register/{locale?}', function ($locale = 'en'){
     App::setLocale($locale);
    
     
-    return json_encode( __('register.data'));
+    return __('register.data');
+});
+Route::get('/home', function (){
+   
+    return 'домашний экран админки';
 });
 
-Route::get('/greeting/{locale}', function ($locale) {
-    if (! in_array($locale, ['en', 'es', 'fr'])) {
-        abort(400);
-    }
+// Route::get('/register/{locale?}', [UserController::class, 'index']);
 
-    App::setLocale($locale);
 
-    //
-});
