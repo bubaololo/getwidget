@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\App;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -26,11 +29,18 @@ Route::get('/register/{locale?}', function ($locale = 'en'){
     
     return __('register.data');
 });
-Route::get('/home', function (){
+Route::get('/home', function (Request $request){
    
-    return 'домашний экран админки';
+    return $request->user();
 });
 
 // Route::get('/register/{locale?}', [UserController::class, 'index']);
+
+Route::group(['middleware' => 'auth:sanctum'], function(){
+
+// Route::get('/get', 'GetController');
+    
+
+});
 
 
