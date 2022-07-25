@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('widget_types', function (Blueprint $table) {
-            $table->string('name');
+            $table->string('name_ru');
+            $table->string('name_en');
             $table->timestamps();
         });
     }

@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('widgets', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name_ru');
+            $table->string('name_en');
             $table->foreignIdFor(WidgetType::class);
             $table->timestamps();
         });
