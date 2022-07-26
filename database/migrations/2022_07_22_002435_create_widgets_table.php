@@ -25,7 +25,6 @@ return new class extends Migration {
             $table->foreignId('widget_type_id')
             ->constrained()
             ->onUpdate('cascade');
-            $table->timestamps();
         });
     }
 

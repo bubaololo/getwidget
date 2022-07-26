@@ -9,6 +9,7 @@ class Widget extends Model
 {
     use HasFactory;
 
+
     public function type()
     {
         return $this->belongsTo(WidgetType::class);

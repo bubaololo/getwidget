@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\RegFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,26 +16,27 @@ use Illuminate\Support\Facades\App;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-Route::get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::get('/register/{locale?}', function ($locale = 'en'){
+// Route::get('/register/{locale?}', function ($locale = 'ru'){
    
-    App::setLocale($locale);
+//     App::setLocale($locale);
    
-    
-    return __('register.data');
-});
+//     return __('register.data');
+// });
+
+
 Route::get('/home', function (Request $request){
    
     return $request->user();
 });
 
-// Route::get('/register/{locale?}', [UserController::class, 'index']);
+Route::get('/register/{locale?}', [RegFormController::class, 'index']);
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
 

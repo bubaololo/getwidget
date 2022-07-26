@@ -22,6 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profession',
+        'birth_date',
+        'site',
+        'avatar',
     ];
 
     /**
@@ -42,4 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function widgets()
+    {
+        return $this->hasMany(UserWidget::class);
+    }
 }

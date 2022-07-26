@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name_ru')->unique();
             $table->string('name_en')->nullable();
-            $table->timestamps();
         });
     }
 
