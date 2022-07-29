@@ -88,9 +88,7 @@ class FillWidgets extends Command
                 'description_en' => $en,
             ]);
         }
-
         
-
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

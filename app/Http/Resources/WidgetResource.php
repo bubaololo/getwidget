@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RegResource extends JsonResource
+class WidgetResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,14 +15,13 @@ class RegResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'title' => __('register.title'),
-            'placeholders' => [
-                'name' => __('register.name'),
-                'email' => __('register.email'),
-                'password' => __('register.password'),
-                'password_confirm' => __('register.password_confirm'),
-            ],
+            'id' => $this->id,
+            'name' => $this->name_ru,
+            'description' => $this->description_ru,
         ];
     }
+    public function withResponse($request, $response)
+    {   
+        $response->setEncodingOptions(JSON_UNESCAPED_UNICODE);
+    }
 }
-

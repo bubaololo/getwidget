@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\RegFormController;
-
+use App\Http\Resources\WidgetCollection;
+use App\Models\Widget;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,6 +44,10 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 // Route::get('/get', 'GetController');
     
 
+});
+
+Route::get('/widgets', function () {
+    return new WidgetCollection(Widget::all());
 });
 
 
