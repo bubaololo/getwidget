@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\RegFormController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Resources\WidgetCollection;
 use App\Models\Widget;
 /*
@@ -41,7 +42,8 @@ Route::get('/register/{locale?}', [RegFormController::class, 'index']);
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
 
-// Route::get('/get', 'GetController');
+
+Route::get('/dashboard/{locale?}', [DashboardController::class, 'index']);
     
 
 });
